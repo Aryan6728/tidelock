@@ -1,5 +1,7 @@
 # 🌊 Tidelock
-
+<p align="center">
+  <img src="assets/banner.png" alt="Tidelock" width="100%">
+</p>
 **File sharing you control.** Encrypt files in your browser, store them on [Walrus](https://www.walrus.xyz/), and control access on [Sui](https://sui.io/) — revoke any time. No platform can override you.
 
 Built for the **Tatum x Walrus Hackathon**.
