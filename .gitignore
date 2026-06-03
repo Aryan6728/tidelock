@@ -1,0 +1,22 @@
+# dependencies
+node_modules/
+web/node_modules/
+
+# build output
+web/dist/
+web/build/
+contracts/build/
+
+# secrets — never commit
+.env
+.env.local
+.env.*.local
+web/.env.local
+
+# editor / OS
+.DS_Store
+.vscode/
+*.log
+
+# misc
+tidelock-source.zip
