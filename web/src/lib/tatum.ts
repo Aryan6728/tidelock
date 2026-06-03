@@ -1,17 +1,11 @@
 import { SuiJsonRpcClient, JsonRpcHTTPTransport } from "@mysten/sui/jsonRpc";
 
-const TATUM_API_KEY = import.meta.env.VITE_TATUM_API_KEY as string;
-
-// In dev, calls go through Vite's proxy (configured in vite.config.mts),
-// which forwards "/tatum" -> https://sui-testnet.gateway.tatum.io
-// server-side, avoiding browser CORS. Used for READING on-chain data —
-// e.g. verifying a Share is still valid before we decrypt a file.
+// Both dev and prod call "/api/tatum":
+//  - dev: Vite proxies /api/tatum -> Tatum (see vite.config.mts)
+//  - prod: the /api/tatum serverless function forwards to Tatum
 export const tatumClient = new SuiJsonRpcClient({
   network: "testnet",
   transport: new JsonRpcHTTPTransport({
-    url: "/tatum",
-    rpc: {
-      headers: { "x-api-key": TATUM_API_KEY },
-    },
+    url: "/api/tatum",
   }),
 });
